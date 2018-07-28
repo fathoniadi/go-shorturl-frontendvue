@@ -3,13 +3,13 @@
 
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-      <b-navbar-brand href="#">NavBar</b-navbar-brand>
+      <b-navbar-brand href="#">GO URL Shortener</b-navbar-brand>
 
       <b-collapse is-nav id="nav_collapse">
 
         <b-navbar-nav>
-          <b-nav-item href="#">Link</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
+          <li class="nav-item"><router-link :to="{name: 'Hello'}" class="nav-link" active-class="active" exact>Home</router-link></li>
+          <li class="nav-item"><router-link :to="{name: 'About'}" class="nav-link" active-class="active" exact>About</router-link></li>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->

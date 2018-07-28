@@ -2,8 +2,7 @@
   <div class="container-fluid" style="">
     <b-row class="">
       <b-col class="col-md-12">
-          <img class="img img-responsive" src="../assets/logo.png">
-          <h1 class="h1">Hello World</h1>
+          <h1 class="h1">{{ msg }}</h1>
       </b-col>
     </b-row>
   </div>
@@ -12,10 +11,10 @@
 <script>
 
 export default {
-  name: 'hello',
+  name: 'about',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'About'
     }
   }
 }
