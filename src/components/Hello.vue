@@ -1,23 +1,26 @@
 <template>
   <div class="container-fluid" style="">
     <b-row class="">
-      <b-col class="col-md-12">
+      <div class="col-md-12">
           <img class="img img-responsive" src="../assets/logo.png">
-          <h1 class="h1">Hello World</h1>
-      </b-col>
+          <h1 class="h1">{{ msg }}</h1>
+          <FormUrl/>
+      </div>
     </b-row>
   </div>
 </template>
 
 <script>
+import FormUrl from '@/components/FormUrl'
 
 export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Go URL Shortener'
     }
-  }
+  },
+  components: {FormUrl}
 }
 </script>
 
