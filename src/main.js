@@ -7,9 +7,6 @@ import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/main.css'
-import VeeValidate from 'vee-validate'
-
-Vue.use(VeeValidate)
 
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
