@@ -15,7 +15,7 @@
       </b-alert>
       <form @submit.prevent="" class="">
           <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-9">
                   <div class="form-group">
                       <input type="" name="url" @keyup.enter="doShort()" placeholder="Enter your url here :)" v-model="url" class="form-control form-control-lg">
                   </div>
@@ -24,7 +24,7 @@
                       <input v-model="input_custom_link" @keyup.enter="doShort()" type="text" class="form-control col-4">
                   </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                   <b-dropdown title="Click for 'Do IT' or click dropdown for another option" id="ddown-split" @click="doShort()" split :text="mode" size="lg" class="">
                     <b-dropdown-item v-if="( custom_link == false )" @click="changeMode(true, 'Do it (Custom Link Mode)')" href="#">Use Custom Link</b-dropdown-item>
                     <b-dropdown-item v-if="( custom_link == true )" @click="changeMode(false, 'Do it (Random Mode)')" href="#">Use Random</b-dropdown-item>
@@ -54,29 +54,23 @@ export default {
       let url = this.url
       let customLink = this.input_custom_link
       var error = false
-      if (url.length <= 0) {
+
+      if (url.length <= 0 && !error) {
         error = true
         this.error_message = 'Please input valid URL'
       }
 
-      let regex = /^(http|https)/
-      if (url.length > 3 && !url.match(regex)) {
+      if (this.$validate({website: url}, {website: {url: true}}) && !error) {
         error = true
         this.error_message = 'Please input valid URL'
       }
 
-      let regexProtocolOnly = /^(http|https)$/
-      if (url.length > 3 && !url.match(regexProtocolOnly)) {
-        error = true
-        this.error_message = 'Please input valid URL'
-      }
-
-      if (this.custom_link && !/^[a-z0-9-]+$/.test(customLink)) {
+      if (this.custom_link && !/^[a-z0-9-]+$/.test(customLink) && !error) {
         error = true
         this.error_message = 'Please input valid custom link. <br> Custom link only support Number, Alphabet and Dash (-)'
       }
 
-      if (customLink.length <= 4 && this.custom_link) {
+      if (customLink.length <= 4 && this.custom_link && !error) {
         error = true
         this.error_message = 'Custom link must more than 4 character'
       }
